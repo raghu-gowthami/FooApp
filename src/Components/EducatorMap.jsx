@@ -8,8 +8,7 @@ import {
   TableRow,
   Paper,
   Typography,
-  Box,
-  Link,
+  Box
 } from "@mui/material";
 import { Outlet, Link as RouterLink } from "react-router";  // Correct import for `Link` and `Outlet`
 

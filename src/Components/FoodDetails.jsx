@@ -12,6 +12,7 @@ import {
 const FoodDetails = ({ foodId }) => {
   const [food, setFood] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+
   const URL = `https://api.spoonacular.com/recipes/${foodId}/information`;
   const API_KEY = "0204c14dff754ef3aa132ceec277505a";
 
@@ -23,7 +24,7 @@ const FoodDetails = ({ foodId }) => {
       setIsLoading(false);
     }
     fetchFood();
-  }, [foodId]);
+  }, [foodId, URL]);  // Add URL to the dependency array
 
   return (
     <Box sx={{ padding: 4 }}>

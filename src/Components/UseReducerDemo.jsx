@@ -1,9 +1,10 @@
 import React, { useReducer, useState } from "react";
 import { useNavigate } from "react-router";
-import { Button, TextField, Typography, Container } from "@mui/material"; // Import Material-UI components
+import { Button, TextField, Typography, Container, Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material"; // Import Material-UI components
 
 const UseReducerDemo = () => {
   const [username, setUseName] = useState("");
+  const [dialogOpen, setDialogOpen] = useState(false);
   const [state, dispatch] = useReducer(reducer, 0);
   const navigate = useNavigate();
 
@@ -18,6 +19,19 @@ const UseReducerDemo = () => {
 
   function handleClick() {
     navigate("/EdMap/Profile", { state: { username } });
+  }
+
+  const openConfirmationDialog = () => {
+    setDialogOpen(true);
+  }
+
+  const closeConfirmationDialog = () => {
+    setDialogOpen(false)
+  }
+
+  const handleConfirmNavigation = () => {
+        handleClick();
+        closeConfirmationDialog();
   }
 
   return (
@@ -56,11 +70,20 @@ const UseReducerDemo = () => {
         />
       </div>
       <div>
+        <Dialog open={dialogOpen} onClose={closeConfirmationDialog}>
+          <DialogTitle>Confirm Profile</DialogTitle>
+          <DialogContent> Confirm to go to Profile Page?</DialogContent>
+          <DialogActions>
+            <Button onClick={handleConfirmNavigation}>Yes</Button>
+            <Button onClick={closeConfirmationDialog}>No</Button>
+          </DialogActions>
+        </Dialog>
         <Button
           variant="contained"
           color="primary"
           fullWidth
-          onClick={handleClick}
+          onClick={openConfirmationDialog}
+
         >
           Go to Edu in Profile
         </Button>

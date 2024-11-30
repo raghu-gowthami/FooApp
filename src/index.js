@@ -3,21 +3,14 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 
 import reportWebVitals from "./reportWebVitals";
-
-import Nav from "./Components/Nav";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import App from "./ExamPractice/App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-    {/* <MapFilter/> */}
-    {/* <UseDemo/> */}
-    {/* <UseDemo1/> */}
-    {/* <EducatorMap/> */}
-    {/* <UseEffDemo/> */}
-    {/* <App1/> */}
-    {/* <UseReducerDemo/> */}
-    <Nav />
+    {/* <Nav /> */}
+    <App/>
   </React.StrictMode>
 );
 
